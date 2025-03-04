@@ -1,45 +1,77 @@
 package org.example;
 
-
+// 문제 : 실행되는 출력문에는 참 그렇지 않으면 거짓 이라고 적어주세요.
 
 class Main {
     public static void main(String[] args) {
-        int age = 10;
-
-        System.out.println("당신의 나이 : " + age);
-
-        if (age >= 20) { // 조건식 / True or False 가 나와야함 / 숫자가 아닌 논리를 담음.
-            System.out.println("성인");
+        if ( true ) {
+            System.out.println("참1");
         }
 
-        if (age <= 19) {
-            System.out.println("미성년자");
-        }
-        // 조건문 안에 들어가는 연산자는 '비교 연산자'
-
-
-        // 그리고(&&) / 또는(||)
-        if (10 > 20 || 1 == 1 || 3 > 2) {
-            System.out.println("실행됨"); // 실행됨
+        if ( false ) {
+            System.out.println("거짓1");
         }
 
-        if (10 > 20 || 1 != 1 || 3 < 2) {
-            System.out.println("실행됨"); // 실행되지 않음.
-        }
-        // 또는(||)은 True 하나라도 있을 시 True
+        int a = 10;
 
-        if (10 > 20 && 1 == 1 && 3 > 2) {
-            System.out.println("실행됨"); // 실행되지 않음.
+        // `==` => 같다.
+        if ( a == 10 ) {
+            System.out.println("참2");
         }
 
-        if (10 < 20 && 1 == 1 && 3 > 2) {
-            System.out.println("실행됨"); // 실행됨
+        // `!=` => 같지 않다.
+        if ( a != 10 ) {
+            System.out.println("거짓2");
         }
-        // 그리고(&&)는 False 하나라도 있을 시 False
 
-        if (10 < 20 || 1 == 1 && 3 > 2) {
-            System.out.println("실행됨"); // 실행됨
+        if ( a > 10 ) {
+            System.out.println("거짓3");
         }
-        // 또는(||)과 그리고(&&)는 합쳐서 사용가능 앞에서부터 계산
+
+        if ( a >= 10 ) {
+            System.out.println("참3");
+        }
+
+        int b = 10;
+
+        if ( a == b ) {
+            System.out.println("참4");
+        }
+
+        // boolean c => c 에는 오직 true/false 만 담을 수 있다.
+        boolean c = a != b; // false
+
+        if ( c ) {
+            System.out.println("거짓4");
+        }
+
+        if ( c == false ) {
+            System.out.println("참5");
+        }
+
+        // `!` => 반전
+        if ( !c ) {
+            System.out.println("참6");
+        }
+
+        // `!` => 반전
+        if ( !(!c) ) {
+            System.out.println("거짓5");
+        }
+
+        boolean d = true;
+
+        if ( c != d ) {
+            System.out.println("참7");
+        }
+        
+
+        if ( 20 > 2 && 10 > 3 && true != false && 10 != 10 ) {
+            System.out.println("거짓6");
+        }
+
+        if ( 10 != 10 || 10 < 2 ) {
+            System.out.println("거짓7");
+        }
     }
 }
