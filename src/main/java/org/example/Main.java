@@ -1,41 +1,84 @@
 package org.example;
 
-// 문제 : 실행되는 출력문에는 참 그렇지 않으면 거짓 이라고 적어주세요.
+// 문제 : 할인 대상인지 아닌지 출력해주세요.
+// 조건 : 나이가 19세 이하이거나 60세 이상이면 할인 대상입니다.
+// 조건 : 출력예시 처럼 출력되어야 합니다.
+// 조건 : `구현시작` 부분만 수정 할 수 있습니다.
+// 조건 : 4가지 이상의 방법으로 풀어야 합니다.
+// 조건 : 그 중 2가지 방법은 `&&, ||`없이 풀어야 합니다.
 
 class Main {
     public static void main(String[] args) {
+        int age = 19; // 이 값을 바꿔가면서 실행해보세요.
 
-        int age = 36;
+        System.out.println("당신의 나이는 " + age + "살 입니다.");
 
-        if (age < 10 && age > 0) { // 0 < age < 10 은 안되나
-            System.out.println("유아/아동");
-        } else if (age < 20 && age >= 10) {
-            System.out.println("10대");
-        } else if (age < 30 && age >= 20) {
-            System.out.println("20대");
-        } else if (age < 40 && age >= 30) {
-            System.out.println("30대");
-        } else {
-            System.out.println("40대 이상");
+        // 구현시작
+        // 1번째 방법
+        if (age <= 19 || age >= 60) {
+            System.out.println("할인 대상입니다.");
+        } else
+            System.out.println("할인 대상이 아닙니다.");
+
+        // 2번째 방법
+        if (age <= 19) {
+            System.out.println("할인 대상입니다.");
+        }
+        if (age > 19 && age < 60) {
+            System.out.println("할인 대상이 아닙니다.");
+        }
+        if (age >= 60) {
+            System.out.println("할인 대상입니다.");
         }
 
-        // else if 일 경우 참일 경우 뒤의 else if 코드는 실행하지 않음. (동시에 여러 개가 참으로 나오지 않음.)
-        // if 와  else if 는 한 덩어리 취급
-        // else는 모든 조건이 맞지 않는 경우
-        // ctrl + shift + f : 정렬
+        // 3번째 방법
+        if (age <= 19) {
+            System.out.println("할인 대상입니다.");
+        } else if (age >= 60) {
+            System.out.println("할인 대상입니다.");
+        } else
+            System.out.println("할인 대상이 아닙니다.");
 
-        if (age < 10) { // 0 < age < 10 은 안되나
-            System.out.println("유아/아동");
-        } else if (age < 20) {
-            System.out.println("10대");
-        } else if (age < 30) {
-            System.out.println("20대");
-        } else if (age < 40) {
-            System.out.println("30대");
-        } else {
-            System.out.println("40대 이상");
+        // 4번째 방법
+        if (age <= 19) {
+            System.out.println("할인 대상입니다.");
+        } else if (age > 19 && age < 60) {
+            System.out.println("할인 대상이 아닙니다.");
+        } else if (age >= 60) {
+            System.out.println("할인 대상입니다.");
         }
-        // else if 이기 떄문에 참이면 아래 코드가 작동하지 않기 떄문에 잘 작동함.
-        // if 만 사용한 문장보다 step이 적어짐.
+
+        // 5번쨰 방법
+        if (age > 19 && age < 60) {
+            System.out.println("할인 대상이 아닙니다.");
+        } else
+            System.out.println("할인 대상입니다.");
+
+        // 6번째 방법
+        if (age <= 19 || age >= 60) {
+            System.out.println("할인 대상입니다.");
+        } else if (age > 19 && age < 60) {
+            System.out.println("할인 대상이 아닙니다.");
+        }
+
+        // 7번째 방법
+        if (age > 19 && age < 60) {
+            System.out.println("할인 대상이 아닙니다.");
+        } else if (age <= 19 || age >= 60) {
+            System.out.println("할인 대상입니다.");
+        }
+
+        // 8번째 방법
+        if (age <= 19) {
+            System.out.println("할인 대상입니다.");
+        } else if (age < 60) {
+            System.out.println("할인 대상이 아닙니다.");
+        } else if (age >= 60) {
+            System.out.println("할인 대상입니다.");
+        } else if (age > 19) {
+            System.out.println("할인 대상이 아닙니다.");
+        }
+
+        // 출력 => 할인대상입니다. 또는 할인 대상이 아닙니다.
     }
 }
