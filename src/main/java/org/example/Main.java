@@ -2,19 +2,33 @@ package org.example;
 
 
 
-// 문제 : `안녕하세요.`를 10번 출력해주세요.
+// 문제 : a와 b가 가지고 있는 값을 서로 뒤바꿔주세요.
 
 class Main {
     public static void main(String[] args) {
-        int x = 5;
-        double y = 5.55;
-        int yourage = 5;
-        int YourAge = 5;
-        int your_age = 5; // 띄어쓰기가 불가능
-        // 변수 타입(type) + 변수명 = 값
-        // int 1234 = 5; 변수의 이름은 숫자로 시작할 수 없음.(중간에 낄 순 있음)
-        // 예약어 또한 쓸 수 없음.(노란색 단어)
+        // `int a` => a라는 이름의 변수(즉 공간)을 만든다.
+        // `int` => a라는 공간에는 정수만 담을 수 있다.
+        // `;` => 문장이 끝남을 알린다.
+        int a;
+        a = 5;
 
+        System.out.println(a);
+        System.out.println(a + 10);
+
+        int b = 10;
+
+        // `+` => 문장과 문자을 합친다.
+        System.out.println("a : " + a);
+        System.out.println("b : " + b);
+
+        // 여기서 부터
+        a = b; // b는 값인 10을 나타내기 때문에 a에 10이 대입됨.
+        b = 5; // a 는 이미 10이라는 값으로 지정했기 때문에 b는 따로 5라는 값을 지정함.
+        // 여기까지 수정 가능
+
+        System.out.println("a : " + a);
+        // 출력 : a : 10
+        System.out.println("b : " + b);
+        // 출력 :  b : 5
     }
 }
-
