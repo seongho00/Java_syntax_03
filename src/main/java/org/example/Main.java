@@ -1,8 +1,7 @@
 package org.example;
 
 
-
-// 문제 : a와 b가 가지고 있는 값을 서로 뒤바꿔주세요.
+// 문제 : a와 b가 가지고 있는 값을 서로 뒤바꿔주세요. // 조건 : 숫자와 사칙연산 사용 금지
 
 class Main {
     public static void main(String[] args) {
@@ -22,8 +21,9 @@ class Main {
         System.out.println("b : " + b);
 
         // 여기서 부터
-        a = b; // b는 값인 10을 나타내기 때문에 a에 10이 대입됨.
-        b = 5; // a 는 이미 10이라는 값으로 지정했기 때문에 b는 따로 5라는 값을 지정함.
+        int c = b; // b의 값을 c에 미리 지정
+        b = a; // b의 값은 c로 대체할 수 있기에 b의 값을 먼저 변경
+        a = c; // a의 값은 b의 대체값인 c로 변경
         // 여기까지 수정 가능
 
         System.out.println("a : " + a);
