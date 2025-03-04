@@ -6,9 +6,15 @@ package org.example;
 
 class Main {
     public static void main(String[] args) {
-        System.out.print("안녕\n"); //print 와 println 의 차이
-//         주황색 - 예악어, 키워드(이미 지정되어 있는 언어)
-//         주석 처리 방법 1. //  2. ctrl + /  3. ctrl + shift + /
+        int x = 5;
+        double y = 5.55;
+        int yourage = 5;
+        int YourAge = 5;
+        int your_age = 5; // 띄어쓰기가 불가능
+        // 변수 타입(type) + 변수명 = 값
+        // int 1234 = 5; 변수의 이름은 숫자로 시작할 수 없음.(중간에 낄 순 있음)
+        // 예약어 또한 쓸 수 없음.(노란색 단어)
+
     }
 }
 
