@@ -4,19 +4,42 @@ package org.example;
 
 class Main {
     public static void main(String[] args) {
-        int x = 10;
+        int age = 10;
 
-        System.out.println(10 + 10); // 20
-        System.out.println(x + 10); // 20
-        System.out.println("10" + 10); // 1010
-        System.out.println("x" + 10); // x10
-        System.out.println("10" + x); // 1010
-        System.out.println("x : " + x * 5); // x * 5가 우선순위가 높기 떄문에 x : 50
-        System.out.println("x : " + x + 5); // x : 105
-        System.out.println("x : " + (x + 5)); // x : 15
-        
-        // 더할려면 같은 타입이여야 함
-        // 문장 + 숫자 -> 숫자가 문자열로 바뀜 (문자열이 숫자를 포함하고 있기 떄문에)
-        // 문장 + 문장 = 이어붙이기(문장문장)
+        System.out.println("당신의 나이 : " + age);
+
+        if (age >= 20) { // 조건식 / True or False 가 나와야함 / 숫자가 아닌 논리를 담음.
+            System.out.println("성인");
+        }
+
+        if (age <= 19) {
+            System.out.println("미성년자");
+        }
+        // 조건문 안에 들어가는 연산자는 '비교 연산자'
+
+
+        // 그리고(&&) / 또는(||)
+        if (10 > 20 || 1 == 1 || 3 > 2) {
+            System.out.println("실행됨"); // 실행됨
+        }
+
+        if (10 > 20 || 1 != 1 || 3 < 2) {
+            System.out.println("실행됨"); // 실행되지 않음.
+        }
+        // 또는(||)은 True 하나라도 있을 시 True
+
+        if (10 > 20 && 1 == 1 && 3 > 2) {
+            System.out.println("실행됨"); // 실행되지 않음.
+        }
+
+        if (10 < 20 && 1 == 1 && 3 > 2) {
+            System.out.println("실행됨"); // 실행됨
+        }
+        // 그리고(&&)는 False 하나라도 있을 시 False
+
+        if (10 < 20 || 1 == 1 && 3 > 2) {
+            System.out.println("실행됨"); // 실행됨
+        }
+        // 또는(||)과 그리고(&&)는 합쳐서 사용가능 앞에서부터 계산
     }
 }
