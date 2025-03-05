@@ -3,32 +3,56 @@ package org.example;
 
 class Main {
     public static void main(String[] args) {
-        int dan = 8;
 
-        int i = 1;  // 1부터
-
-        while (i <= 10) { //100까지
-            System.out.println(dan + " * " + i + " = " + dan * i); // 이 코드를 반복
-            System.out.println(10); // 10 3번 출력
-            i++; // 1만큼 증가하면서
-            // i += x // x만큼 증가하면서
-        }
-        // while 반복문 : 조건식이 참일 동안 계속 반복
-        // 반복문의 3요소
-        // 초기(값), (종료)조건, step(보폭, 방향)
-        // i = 1;, 1 <= 100, i++;
-
-        // step의 방향 : 증가하거나 감소하거나
-
-        i = 10;
-
-        while (i >= 5) {
-            System.out.println(dan + " * " + i + " = " + dan * i);
-            i--;
+        for (int i = 1; i <= 3; i++) {
+            System.out.println(i);
         }
 
-        System.out.println("i : " + i);
 
+        int num = 0;
+
+        while (num < 10) {
+
+            if (num == 5) {
+                break; // 반복문 탈출
+            }
+
+            System.out.println("num : " + num);
+
+            num++;
+        }
+        // 0~4까지 출력
+
+        while (num < 10) {
+
+//            if (num == 5) {
+//                break;
+//            } // 0~4까지 출력
+
+            System.out.println("num : " + num);
+
+//            if (num == 5) {
+//                break;
+//            } // 0~5까지 출력
+
+            num++;
+
+//            if (num == 5) {
+//                break;
+//            } // 0~4까지 출력
+        }
+        // if문의 위치에 따라 출력 순서가 달라 출력이 달라짐.
+
+        while (num < 10) {
+
+            num++;
+
+            if (num == 3) {
+                continue; // 다시 조건식 체크로 넘어감스킵
+            }
+            System.out.println("num : " + num);
+        }
+        // brak , continue : 반복문 컨트롤
 
     }
 }
