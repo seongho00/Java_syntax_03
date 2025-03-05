@@ -1,58 +1,125 @@
 package org.example;
 
+// 문제 : 1부터 5까지 출력해주세요.
 
 class Main {
     public static void main(String[] args) {
 
-        for (int i = 1; i <= 3; i++) {
+        int i = 1;
+
+        while (i <= 5) {
             System.out.println(i);
+            i++;
         }
 
+    }
+}
 
-        int num = 0;
+// 문제 : -100부터 25까지 출력해주세요.
 
-        while (num < 10) {
+class Main {
+    public static void main(String[] args) {
+        int i = -100;
 
-            if (num == 5) {
-                break; // 반복문 탈출
+        while (i <= 25) {
+            System.out.println(i);
+            i += 1;
+        }
+
+        // 출력
+    }
+}
+
+
+// 문제 : 아래와 같이 출력해주세요.
+// 문제 : 단을 `* 1000`부터 `* -500`까지 출력해주세요.
+
+class Main {
+    public static void main(String[] args) {
+        int dan = 8;
+
+        int i = 1000;
+        while (i >= -500) {
+            System.out.println(dan + " * " + i + " = " + dan * i);
+            i--;
+        }
+
+        // 출력
+    /*
+    8 * 1000 = 8000
+    ...
+    8 * -500 = -4000
+    */
+    }
+}
+
+// 문제 : 단을 `* 1000`부터 `* 1'까지 출력해주세요.
+
+class Main {
+    public static void main(String[] args) {
+        int dan = 8;
+
+        int i = 1000;
+
+        while (i >= 1) {
+            System.out.println(dan + " * " + i + " = " + dan * i);
+            i--;
+        }
+
+    }
+}
+
+// 문제 1부터 5까지의 합을 출력해주세요.
+
+class Main {
+    public static void main(String[] args) {
+
+        int i = 1;
+        int sum = 0;
+
+        while (i <= 5) {
+            sum += i;
+            i++;
+        }
+
+        System.out.println(sum);
+    }
+}
+
+
+// 문제 -100부터 25까지의 합을 출력해주세요.
+
+class Main {
+    public static void main(String[] args) {
+
+        int i = -100;
+        int j = 0;
+
+        while (i <= 25) {
+            j += i;
+            i++;
+        }
+
+        System.out.println(j);
+    }
+}
+
+//문제 1부터 3까지 출력하는 작업을 10번 해주세요 (2중 while문 사용)
+
+class Main {
+    public static void main(String[] args) {
+
+        int i = 1;
+        int j = 1;
+
+        while (i <= 10) {
+            while (j <= 3) {
+                System.out.println(j);
+                j++;
             }
-
-            System.out.println("num : " + num);
-
-            num++;
+            j = 1;
+            i++;
         }
-        // 0~4까지 출력
-
-        while (num < 10) {
-
-//            if (num == 5) {
-//                break;
-//            } // 0~4까지 출력
-
-            System.out.println("num : " + num);
-
-//            if (num == 5) {
-//                break;
-//            } // 0~5까지 출력
-
-            num++;
-
-//            if (num == 5) {
-//                break;
-//            } // 0~4까지 출력
-        }
-        // if문의 위치에 따라 출력 순서가 달라 출력이 달라짐.
-
-        while (num < 10) {
-
-            num++;
-
-            if (num == 3) {
-                continue; // 다시 조건식 체크로 넘어감스킵
-            }
-            System.out.println("num : " + num);
-        }
-        // brak , continue : 반복문 컨트롤
 
     }
 }
