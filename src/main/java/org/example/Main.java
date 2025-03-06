@@ -2,81 +2,208 @@ package org.example;
 
 import java.util.Collection;
 import java.util.Collections;
-
-// 코드 100 1026번
-
 import java.util.Scanner;
 
+
 public class Main {
-    public static void main (String args[]) {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        sc.useDelimiter("-"); // - 기준으로 잘라서 입력 받겠다는 뜻
-        int a = sc.nextInt(); // - 기호가 나오기 전까지 입력 진행
-        int b = sc.nextInt(); // - 기호가 나오기 전까지 입력 진행
-        int c = sc.nextInt(); // - 기호가 나오기 전 or 입력의 마지막 부분까지 진행
-        System.out.println(a + "\n" + b + "\n" + c);
+        long a = sc.nextLong();
+
+        System.out.println(-a);
+
     }
 }
 
-class Main {
-    public static void main(String[] args) {
+//        코드 100 1039번
+
+public class Main {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        Scanner a = sc.useDelimiter(":");
-        String b = a.nextLine();
-//        String[] arr = a.split(":");
+        long a = sc.nextLong();
+        long b = sc.nextLong();
+
+        System.out.println(a + b);
+
+    }
+}
+
+
+// 코드 100 1038번
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        long a = sc.nextLong();
+        long b = sc.nextLong();
+
+        System.out.println(a + b);
+
+    }
+}
+
+// 코드 100 1037번
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        char b = (char)(a);
+        System.out.println(b);
+
+    }
+}
+
+// 코드 100 1036번
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        char a = sc.next().charAt(0);
+        int b = (int)(a);
+        System.out.println(b);
+
+    }
+}
+
+//코드 100 1035번
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        int b =Integer.parseInt(a, 16);
+        String octa = Integer.toOctalString(b);
+        System.out.println(octa);
+
+    }
+}
+
+// 코드 100 1034번
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        int b =Integer.parseInt(a, 8);
+
         System.out.println(b);
 
     }
 }
 
 
- 코드100 1025번
 
-class Main {
-    public static void main(String[] args) {
+ //코드 100 1033번
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+
+        String hexaDecimal = Integer.toHexString(a).toUpperCase();
+        System.out.println(hexaDecimal);
+
+    }
+}
+
+
+ //코드 100 1032번
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+
+        String hexaDecimal = Integer.toHexString(a);
+        System.out.println(hexaDecimal);
+
+    }
+}
+
+// 코드 100 1031번
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+
+        String octal = Integer.toOctalString(a);
+        System.out.println(octal);
+
+    }
+}
+
+// 코드 100 1030번
+
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        long a = sc.nextLong();
+        System.out.println(a);
+
+    }
+}
+
+// 코드 100 1028번
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        long a = sc.nextLong();
+        System.out.println(a);
+
+    }
+}
+
+// 코드 100 1027번
+
+public class Main {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         String a = sc.nextLine();
-        String[] arr = a.split("");
+        String[] arr = a.split("\\.");
+        int i = 1;
 
-        for (int i = 1; i <= arr.length; i++) {
-            String zero = "";
-            for (int j = arr.length; j > i; j--) {
-                zero += "0"; // 문자열은 더하기가 안 되나?
+        while (i <= 2) {
+            if (arr[i].length() < 2) {
+                arr[i] = "0" + arr[i];
             }
-
-            System.out.println("[" + arr[i - 1] + zero + "]");
-
+            i++;
         }
+        while (arr[0].length() < 4)  {
+            arr[0] = "0" + arr[0];
+        }
+
+        System.out.println(arr[2] + "-" + arr[1] + "-" + arr[0]);
+
     }
 }
 
- 코드100 1024번
+// 코드 100 1026번
 
-class Main {
-    public static void main(String[] args) {
+public class Main {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         String a = sc.nextLine();
-        String[] arr = a.split("");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println("'"+ arr[i] + "'");
+        String[] arr = a.split(":");
+        int i = 1;
+
+        while (i <= 2) {
+            if (Integer.parseInt(arr[i]) == 00){
+                arr[i] = "0";
+                break;
+            }
+            if (arr[i].length() < 2) {
+                arr[i] = "0" + arr[i];
+            }
+            i++;
         }
 
-
-    }
-}
-
-
-
-class Main {
-    public static void main(String[] args) {
-
-
-        String zero;
-        zero = "0"; // 문자열은 더하기가 안 되나?
-        System.out.println(zero);
-        zero = zero + "0";
-        System.out.println(zero);
-
+        System.out.println(arr[1]);
 
     }
 }
