@@ -4,35 +4,36 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
-
-// 입력된 문자열 1개씩 출력하는 방법
+// 삼항연산자
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        // 기본 문법
+        int b = sc.nextInt();
+        int a = b > 5 ? 5 : 0; // true 일 경우 a = 5 / false일 경우 a = 0
 
-        // 1번째 방법 (split, 반복문 활용)
-        String a = sc.nextLine();
-        String[] arr = a.split("");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
+        System.out.println(a);
 
-        // 2번째 방법 (for 반복문 간략화)
-        for (char ch : a.toCharArray()) {
-            System.out.println(ch);
-        }
-        //toCharArray() : a의 글자를 하나씩 나눠 배열을 만든다
-        //char ch : a.toCharArray() : a를 통해 만든 배열을 하나씩 ch에 넣는다.
-        //for (char ch : a.toCharArray()){} : a를 통해 만든 배열이 모두 ch에 들어갈 떄까지 글자 한개씩 반복한다.
+        //더 짧게 만들기
+        int k = sc.nextInt();
 
-        //3번째 방법 (charAt() 함수 활용)
-        for (int i = 0; i < a.length(); i++) {
-            System.out.println(a.charAt(i));
-        }
-        // a.charAt(i) : a에 담겨있는 문자 중 i번째에 있는 문자 하나를 출력한다.
+        System.out.println(k % 2 == 0 ? 10 : 0); // k를 2로 나눴을 때 나머지가 0일 경우 10출력 / 0이 아닐경우 0출력
 
 
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = "ABCED";
+
+        for (int i = 0; i < a.length(); i++) {
+            System.out.println(a.charAt(i));
+        }
+
+    }
+}
+
 
