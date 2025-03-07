@@ -15,16 +15,13 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             if (Character.isUpperCase(arr[i].charAt(0))) {
                 arr[i] = arr[i].toLowerCase();
-            } else
+                result += arr[i];
+            } else if (Character.isLowerCase(arr[i].charAt(0))) {
                 arr[i] = arr[i].toUpperCase();
-
+                result += arr[i];
+            }
         }
-        int k = 0;
 
-        while (k < arr.length) {
-            result += arr[k]; // 안으로 넣을 수 있겠다.
-            k++;
-        }
         System.out.println(result);
     }
 }
