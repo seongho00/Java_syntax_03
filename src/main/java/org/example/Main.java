@@ -8,60 +8,68 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int person2_num = 1;
-        int person2_age = 15;
-        int person2_height = 170;
-        // 변수 이름으로 정보 전달
-        // Stack영역 메모리를 많이 잡아먹음
+        사람 a = new 사람();
+        System.out.println(a.age); // 0
+        System.out.println(a.name); // null
+        System.out.println(a.isMarried); // true
 
+        //키워드 자바 null
+        //String 기본값 : null / 0과 다름 / 아예 비어있는 상태
 
-        int[] person1 = new int[3];
-        person1[0] = 1;
-        person1[1] = 12;
-        person1[2] = 160;
-        // 변수이름을 통한 정보전달이 안 됨. + 실수 & 문장 표현도 힘듬(타입의 다양성)
-        // 만들어진 객체 : 인스턴스 / 객체 안의 변수처럼 동작하는 공간 : 인스턴스 변수
-        // 클래스 == 설계도 == 인스턴스 설계도 == 객체 설계도
+        //객체 = 폴더
+        //클래스의 구성요소
+        //속성 (상태, 단순 데이터) - field(변수) / 넣는다
+        //기능 (행동, 실행 데이터) - method(함수) / 실행한다
 
-        // 지역변수의 죽음 : 함수의 끝
-        // 인스턴스 변수의 죽음 : 인스턴스 끝
-        // 인스턴스(객체)의 죽음 : 고립될 때
+        a.introduce(); // introduce 실행됨
+        // introduce에 age, name, isMarried 변수값이 없으므로 상관없이 출력됨.
 
+        // 객체에 있는 introduce 기능 사용 / 동작버튼 누르기
 
-        // 사용자 정의 객체 만들기 -> 객체 설게도 필요 = 클래스
-        철수 a = new 철수(); // 객체 이름 : 철수 / 변수 a
-        a.이름 = "김철수"; // a를 통해 철수라는 객체 안의 이름이라는 변수 안에 김철수를 넣음.
-        a.나이 = 23;
-        a.키 = 170.5;
+        사람 b = new 사람();
+        b.age = 24;
+        b.name = "김철수";
+        b.isMarried = true;
+        b.introduce2();
+        // a와 연결된 객체(인스턴스)의 introduce 메서드 안에서 같은 객체 내부의 필드(인스턴스 변수) 값 가져와
+        // 키워드 : 자바 this
+        사람 c = new 사람();
+        c.age = 27;
+        c.name = "홍길동";
+        c.isMarried = false;
+        c.introduce2();
 
-        // 예시
-        Scanner sc = new Scanner(System.in);
-
-
-        int[] arr = new int[7];
-        // 1차원 배열
-        arr[0] = 1;
-        arr[1] = 2;
-        //...
-
-
-        int[][] arr2 = new int[2][3];
-        // 2차원 배열  / 3개씩 2묶음
-        arr2[0][0] = 1;
-        arr2[0][1] = 2;
-        //...
-        arr2[1][2] = 6;
-
+        사람 d = new 사람();
+        
 
     }
 }
 
-class 철수 {
-    String 이름; // 객체 안에 '이름'이라는 공간을 만듬
-    int 나이;
-    double 키;
+
+class 사람 {
+    int age; // field (변수)
+    String name;
+    boolean isMarried = true; // 미리 값을 지정할 수 있음. // 이후에 덮어쓰기 가능
+
+    void introduce() { // 함수 만들기
+        System.out.println("introduce 실행됨"); // 변수와 상관없이 출력됨.
+    }
+
+    void introduce2() { // 함수 만들기
+        int age = this.age; // 객체 변수는 this를 거쳐서 method에 도달 = 변화된 값을 감지함
+        // scope가 달라서 age 변수는 겹치지 않음.
+        // 객체 내부 리모콘 "this" / 시점에 따라 this 는 다르다.
+        String name = this.name; // method가 끝날 시 사라지는 변수
+
+
+        System.out.println("나이 : 23"); // 변수와 상관없이 출력됨.
+
+        System.out.println("===자기소개===");
+        System.out.println("이름 : " + name);
+        System.out.println("나이 : " + this.age); // 바로 쓸 수 있음.
+        System.out.println("결혼여부 : " + isMarried); // this 생략 가능하지만 최대한 붙이기
+
+    }
+
+
 }
-
-
-
-
