@@ -6,41 +6,40 @@ import java.util.Scanner;
 
 
 public class Main {
+
+    int b = 20; //전역 변수 : 메소드 밖에 있는 변수
+    static int a = 20; // 공용으로 사용 됨
+
     public static void main(String[] args) {
+        System.out.println(a); // 출력 : 20
+        // static은 static끼리만 연결할 수 있다.
 
-        계산기.합(); // 30 출력
-        System.out.println(a + b); // a, b는 합() 함수가 끝날 떄 죽기 때문에 사용 불가능
+        int a = 10;
+        System.out.println(a); // 출력 : 10 
 
-        개선된계산기.합(10, 20); // 소괄호 : 요청사항 : 인자, 인수, argument
-        개선된계산기.합(30, 40); // 출력 : 70
-        개선된계산기.합(true, 40); // 타입이 맞아야 함
-        개선된계산기.합(30, 40, 100); // 개수가 맞아야함
-        System.out.println(a + b); // 매개변수도 지역변수이기 때문에 함수가 끝날 때 죽음.
 
-    }
-}
+        개선된계산기.합(10, 20); // 소괄호 : 요청사항 : 인자, 인수, argument(args)
 
-class 계산기 {
-    static void 합() {
-        int a = 10; // 지역변수
-        int b = 20;
-        System.out.println(a + b);
+        int b = 개선된계산기.합(10, 20, 30); // 값이 output 된다.
+
     }
 }
 
 class 개선된계산기 {
-
-    static void 합(int c) { //"합()" : 매서드 시그니쳐 가 다르면 다른 함수
-        int a = 10;
-        int b = 20;
+    int a = 40;
+    static void 합(int a, int b) {
         System.out.println(a + b);
+        //void : output 하지 않겠다.
+        return; // 즉시 함수 끝
     }
 
-    static void 합(int a, int b) { // 매개변수 (함수의 내부와 외부의 매개체) / 지역변수의 일종
-
-        System.out.println(a + b);
-
+    static int 합(int a, int b, int c) {
+        return a+b+c; // return : 리턴 스테이트먼트 / a+b+c : return value
+        // a,b,c의 합을 남기겠다
     }
-    // method over loading(다형성)
-    // 다형성 : 오버 라이딩 , 오버로딩
 }
+
+// 키워드 : 변수의 생명주기 / 변수의 스코프
+// 리턴 타입
+// 리턴
+// 리턴 밸류
