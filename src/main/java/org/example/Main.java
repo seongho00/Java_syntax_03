@@ -3,79 +3,52 @@ package org.example;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
-// 문제1 - 자동차 설계도를 만들어주세요.
-// 문제2 - 자동차 객체를 담을 변수를 만들어주세요.
-// 문제3 - 자동차 객체를 만들고 변수에 담아주세요.
-// 문제4 - 자동차 객체마다 서로 다른 최고속력를 가지도록 해주세요.
-// 문제5 - 1개의 자동차가 3번 달리게 해주세요.
-// 문제6 - 객체를 사용하지 않고 두번째 플레이어를 만들어주세요.
-// 문제7 - 3개의 자동차가 각각 1번씩 달리게 해주세요.
-// 문제8 - 각각의 자동차가 서로 다른 최고속력으로 달리게 해주세요.
-// 문제9 - 번호가 다른 각각의 자동차가 서로 다른 최고속력으로 달리게 해주세요.
+
 
 public class Main {
     public static void main(String[] args) {
-        // 문제 2
-        자동차 자동차;
 
-        // 문제 3
-        자동차 a자동차 = new 자동차();
+        MyClass a = new MyClass();
+        a.hi();
 
-        //문제 4
-        a자동차.최고속력 = 100;
+        new MyClass().hi();
 
-        //문제 5
-        a자동차.달리다();
-        a자동차.달리다();
-        a자동차.달리다();
+        // hi(); 메인 클래스에 없기 때문에 바로 호출 불가능
 
-        //문제 6
-        int 자동차2_번호 = 4;
-        int 자동차2_최고속력 = 400;
+        funA(); //메인 클래스 안에 있기 때문에 실행 가능
 
-        //문제 7
-        자동차 b자동차 = new 자동차();
-        자동차 c자동차 = new 자동차();
 
-        a자동차.달리다();
-        b자동차.달리다();
-        c자동차.달리다();
+        //1
+        MyClass b = new MyClass();
+        a.hi();
+        a.bye();
 
-        //문제 8
+        //2
+        new MyClass().hi();
+        new MyClass().bye();
 
-        a자동차.최고속력 = 100;
-        b자동차.최고속력 = 200;
-        c자동차.최고속력 = 300;
+        //3
+        MyClass.hi();  //static 객체화 없이 설계도의 함수를 바로 쓴다.
+        MyClass.bye(); //static 함수가 아니기 때문에 불가능
+        
 
-        a자동차.달리다();
-        b자동차.달리다();
-        c자동차.달리다();
+    }
 
-        //문제 9
-        a자동차.번호 = 1;
-        b자동차.번호 = 2;
-        c자동차.번호 = 3;
-
-        a자동차.달리다();
-        b자동차.달리다();
-        c자동차.달리다();
-
+    static void funA() {
+        System.out.println("funA 실행됨");
     }
 }
 
-// 문제 1
-class 자동차 {
-    //문제 4
-    int 최고속력;
-    // 문제 9
-    int 번호;
 
-    //문제 5
-    void 달리다() {
-        //문제 8
-        int 최고속력 = this.최고속력;
-        int 번호 = this.번호;
-        System.out.println(번호 + "번 자동차가 " + 최고속력 + "km로 달립니다.");
+
+class MyClass {
+    // static : 객체화 하지 않고 쓰겠다, 설계도 차원에서 기능 뽑아서 쓴다.
+    //그럼 static을 하지 않을 이유가 있나?
+    static void hi() {
+        System.out.println("hi 실행됨");
     }
 
+    void bye() {
+        System.out.println("bye 실행됨");
+    }
 }
