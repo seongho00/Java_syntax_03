@@ -3,73 +3,79 @@ package org.example;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
-
+// 문제1 - 자동차 설계도를 만들어주세요.
+// 문제2 - 자동차 객체를 담을 변수를 만들어주세요.
+// 문제3 - 자동차 객체를 만들고 변수에 담아주세요.
+// 문제4 - 자동차 객체마다 서로 다른 최고속력를 가지도록 해주세요.
+// 문제5 - 1개의 자동차가 3번 달리게 해주세요.
+// 문제6 - 객체를 사용하지 않고 두번째 플레이어를 만들어주세요.
+// 문제7 - 3개의 자동차가 각각 1번씩 달리게 해주세요.
+// 문제8 - 각각의 자동차가 서로 다른 최고속력으로 달리게 해주세요.
+// 문제9 - 번호가 다른 각각의 자동차가 서로 다른 최고속력으로 달리게 해주세요.
 
 public class Main {
     public static void main(String[] args) {
+        // 문제 2
+        자동차 자동차;
 
-        사람 a = new 사람();
-        System.out.println(a.age); // 0
-        System.out.println(a.name); // null
-        System.out.println(a.isMarried); // true
+        // 문제 3
+        자동차 a자동차 = new 자동차();
 
-        //키워드 자바 null
-        //String 기본값 : null / 0과 다름 / 아예 비어있는 상태
+        //문제 4
+        a자동차.최고속력 = 100;
 
-        //객체 = 폴더
-        //클래스의 구성요소
-        //속성 (상태, 단순 데이터) - field(변수) / 넣는다
-        //기능 (행동, 실행 데이터) - method(함수) / 실행한다
+        //문제 5
+        a자동차.달리다();
+        a자동차.달리다();
+        a자동차.달리다();
 
-        a.introduce(); // introduce 실행됨
-        // introduce에 age, name, isMarried 변수값이 없으므로 상관없이 출력됨.
+        //문제 6
+        int 자동차2_번호 = 4;
+        int 자동차2_최고속력 = 400;
 
-        // 객체에 있는 introduce 기능 사용 / 동작버튼 누르기
+        //문제 7
+        자동차 b자동차 = new 자동차();
+        자동차 c자동차 = new 자동차();
 
-        사람 b = new 사람();
-        b.age = 24;
-        b.name = "김철수";
-        b.isMarried = true;
-        b.introduce2();
-        // a와 연결된 객체(인스턴스)의 introduce 메서드 안에서 같은 객체 내부의 필드(인스턴스 변수) 값 가져와
-        // 키워드 : 자바 this
-        사람 c = new 사람();
-        c.age = 27;
-        c.name = "홍길동";
-        c.isMarried = false;
-        c.introduce2();
+        a자동차.달리다();
+        b자동차.달리다();
+        c자동차.달리다();
 
-        사람 d = new 사람();
-        
+        //문제 8
+
+        a자동차.최고속력 = 100;
+        b자동차.최고속력 = 200;
+        c자동차.최고속력 = 300;
+
+        a자동차.달리다();
+        b자동차.달리다();
+        c자동차.달리다();
+
+        //문제 9
+        a자동차.번호 = 1;
+        b자동차.번호 = 2;
+        c자동차.번호 = 3;
+
+        a자동차.달리다();
+        b자동차.달리다();
+        c자동차.달리다();
 
     }
 }
 
+// 문제 1
+class 자동차 {
+    //문제 4
+    int 최고속력;
+    // 문제 9
+    int 번호;
 
-class 사람 {
-    int age; // field (변수)
-    String name;
-    boolean isMarried = true; // 미리 값을 지정할 수 있음. // 이후에 덮어쓰기 가능
-
-    void introduce() { // 함수 만들기
-        System.out.println("introduce 실행됨"); // 변수와 상관없이 출력됨.
+    //문제 5
+    void 달리다() {
+        //문제 8
+        int 최고속력 = this.최고속력;
+        int 번호 = this.번호;
+        System.out.println(번호 + "번 자동차가 " + 최고속력 + "km로 달립니다.");
     }
-
-    void introduce2() { // 함수 만들기
-        int age = this.age; // 객체 변수는 this를 거쳐서 method에 도달 = 변화된 값을 감지함
-        // scope가 달라서 age 변수는 겹치지 않음.
-        // 객체 내부 리모콘 "this" / 시점에 따라 this 는 다르다.
-        String name = this.name; // method가 끝날 시 사라지는 변수
-
-
-        System.out.println("나이 : 23"); // 변수와 상관없이 출력됨.
-
-        System.out.println("===자기소개===");
-        System.out.println("이름 : " + name);
-        System.out.println("나이 : " + this.age); // 바로 쓸 수 있음.
-        System.out.println("결혼여부 : " + isMarried); // this 생략 가능하지만 최대한 붙이기
-
-    }
-
 
 }
