@@ -10,52 +10,60 @@ import java.util.Arrays;
 
 class Main {
     public static void main(String[] args) {
-        청둥오리 a청둥오리 = new 청둥오리();
-        a청둥오리.날다();
-        // 출력 : 오리가 날개로 날아갑니다.
+        무기 a = new 칼(); // 상속관계이기 때문에 가능
+//        칼 b = new 무기(); // 불가능 / 무기가 부모이기 때문에
 
-        흰오리 a흰오리 = new 흰오리();
-        a흰오리.날다();
-        // 출력 : 오리가 날개로 날아갑니다.
+        무기 a무기 = new 칼(); // 강제 형변환 : 무기처럼 설계도를 가져감. (공격 함수 삭제)
+        // 하지만, 공간만 있으면 함수 삭제가 안 됨.
+        //
 
-        고무오리 a고무오리 = new 고무오리();
-        a고무오리.날다();
-        // 출력 : 저는 날 수 없어요. ㅜㅠ
+        a무기.공격();
 
-        고무2오리 a고무2오리 = new 고무2오리();
-        a고무2오리.날다();
-        // 출력 : 저는 날 수 없어요. ㅜㅠ
+        //예시
+        double d = 1;
+        System.out.println(d); // 1.0 : 자동 형변환이 일어남
+
+        int i = (int) 1.5; // 강제 형변환
+        System.out.println(i); // 1 출력
+
     }
 }
 
-class 오리 {
-    void 날다() {
-        System.out.println("오리가 날개로 날아갑니다."); // 수정할 때 용이함.
+abstract class 무기 {
+    void 공격() {
+        //어떤 내용을 적어도 칼에서 다시 재정의함.
+        //구현하지 마세요. 로 적음. -> 문법으로 쓸려면?
+    }
+
+    abstract void 공격1(); // 추상 매서드 : 구현하지 않는 함수
+    //하나라도 abstract 함수가 있으면 class도 abstract로 바꿔야함 (추상 클래스)
+}
+
+class 칼 extends 무기 { // 칼은 무기의 한 종류야
+    void 공격1() { // 구상 매서드 : body부분을 구현할 수 있는 함수
+        System.out.println("칼 공격"); // abstract 매서드는 오버 라이드가 필수가 된다.
     }
 }
 
-class 흰오리 extends 오리 {
+interface 무기2 { // 이 안에 든 함수는 모두 abstract 함수만 있다.
+    abstract void 공격();
 
+    void 방어(); // abstract 제거해도 무방
 }
 
-class 청둥오리 extends 오리 {
+interface 무기3 { // 이 안에 든 함수는 모두 abstract 함수만 있다.
+    abstract void 공격();
 
+    void 방어(); // abstract 제거해도 무방
 }
 
-class 고무오리 extends 오리 { 
-    // 메서드 재정의 라고 합니다. 
-    // 메서드 오버라이드 라고도 합니다. : 덮어쓰기 (똑같이 써있는데 다른 기능) : 다형성
-    // 메서드 재정의 => 부모가 물려준 능력을 다시 구현한다.
-    void 날다() {
-        System.out.println("저는 날 수 없어요. ㅜㅠ");
+class 칼2 implements 무기2, 무기3 { // interface 클래스를 상속받을 때는 extends 대신 implements
+    // 다중구현 가능 why? 오버라이드가 필수라서 애매한 상황이 나오지 않음.
+    public void 공격() { // public도 필수
+
+    }
+
+    public void 방어() {
+
     }
 }
-
-class 고무2오리 extends 오리 {
-    void 날다() {
-        System.out.println("저는 날 수 없어요. ㅜㅠ");
-    }
-}
-// 다중상속은 불가능.
-// 복잡한 상속도 좋지 않음.
-// 애매한 상황이 만들어지기 때문
