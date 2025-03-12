@@ -7,68 +7,40 @@ import java.awt.*;
 import java.util.Arrays;
 
 
-// 1부터 n까지 소수의 갯수를 출력하는 함수 만들기
+// 문제 : 아래와 같이 출력되도록 해주세요.
+// 조건 : `숨쉬다` 기능을 중복하지 말아주세요.
 
 class Main {
     public static void main(String[] args) {
-        boolean result = Math.isPrimeNumber(1);
-        System.out.println("1은(는) 소수인가? : " + result);
-
-        result = Math.isPrimeNumber(2);
-        System.out.println("2은(는) 소수인가? : " + result);
-
-        result = Math.isPrimeNumber(3);
-        System.out.println("3은(는) 소수인가? : " + result);
-
-        result = Math.isPrimeNumber(4);
-        System.out.println("4은(는) 소수인가? : " + result);
-
-        result = Math.isPrimeNumber(5);
-        System.out.println("5은(는) 소수인가? : " + result);
-
-        int rs = one_to_n_prime_numbers_count(10);
-        System.out.println("rs : " + rs);
-        // rs : 4
-        rs = one_to_n_prime_numbers_count(13);
-        System.out.println("rs : " + rs);
-        // rs :  6
-        rs = one_to_n_prime_numbers_count(20); // 17 19
-        System.out.println("rs : " + rs);
-        // rs :  8
-
-    }
-
-    static int one_to_n_prime_numbers_count(int a) {
-        int rs = 0;
-        for (int i = 1; i <= a; i++)
-            if (Math.isPrimeNumber(i)) {
-                rs += 1;
-            }
-        return rs;
+        사람 a사람 = new 사람();
+        a사람.숨쉬다();
     }
 }
 
-class Math {
-    static boolean isPrimeNumber(int a) {
-        if (a == 1) {
-            return false;
-        }
-        for (int i = 2; i < a; i++) {
-            if (a % i == 0) {
-                return false;
-            }
-        }
-        return true;
+class 동물 {
+    void 숨쉬다() {
+        System.out.println("숨쉬다.");
     }
+}
+
+class 사람 extends 동물 {
 
 }
 
+//상속 개념
 
+class 고양이 {
+    void 울기() {}
+    void 뛰기() {}
+    void 먹기() {}
+}
 
-
-
-
-
-
-
+class 검은고양이 extends 고양이 { // 검은고양이가 고양이 클래스의 속성과 기능을 물려받는다.(포함한다.)
+//    void 울기() {}
+//    void 뛰기() {}
+//    void 먹기() {}  포함되어 있음  / 기본기능
+    void 때리기() {} // 고유기능
+}
+// 고양이 : 상위 클래스, 부모클래스
+// 검은고양이 : 하위 클래스, 자식클래스
 
