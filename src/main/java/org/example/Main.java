@@ -7,204 +7,54 @@ import java.util.Scanner;
 import java.awt.*;
 import java.util.Arrays;
 
+//생성자
+
 class Main {
     public static void main(String[] args) {
-        사람 a사람 = new 사람();
-        a사람.나이 = 20;
-        a사람.a팔 = new 팔(); // 객체 생성 주소를 넣기 위한 변수 이므로
+        사람 사람1 = new 사람();
+        사람1.이름 = "김철수";
+        사람1.나이 = 22;
+        System.out.println("===사람1 정보===");
+        System.out.println("이름 : " + 사람1.이름); // 김철수
+        System.out.println("나이 : " + 사람1.나이); // 22
 
-        a사람.a팔.길이 = 10; // 타고 타고 가서 넣어야함.
+        사람 사람2 = new 사람("이영희", 33);
+        System.out.println("===사람2 정보===");
+        System.out.println("이름 : " + 사람2.이름); // 이영희
+        System.out.println("나이 : " + 사람2.나이); // 22
+        
+        사람 사람3 = new 김철수();
+        System.out.println("===사람1 정보===");
+        System.out.println("이름 : " + 사람3.이름); // 김철수
+        System.out.println("나이 : " + 사람3.나이); // 22
     }
 }
 
 class 사람 {
-    int 나이;
-    팔 a팔; // 타입은 '팔'이 될 수밖에 없음.
-}
-
-class 팔 {
-    int 길이;
-}
-
-// 문제 : 아래가 실행되도록 해주세요.
-
-class Main {
-    public static void main(String[] args) {
-        전사 a전사 = new 전사();
-
-        a전사.나이 = 20;
-        a전사.a무기 = new 활();
-        a전사.a무기 = new 칼();
-
-    }
-}
-
-class 전사 {
-    int 나이;
-    무기 a무기;
-}
-
-class 무기 {
-
-}
-
-class 활 extends 무기 {
-
-}
-
-class 칼 extends 무기 {
-
-}
-
-
-// 문제 : 아래가 실행되도록 해주세요.
-
-class Main {
-    public static void main(String[] args) {
-        전사 a전사 = new 전사();
-
-        String 이름 = "칸";
-        a전사.이름 = 이름;
-        a전사.나이 = 20;
-        a전사.자기소개();
-
-        a전사.나이++;
-        a전사.자기소개();
-
-        a전사.나이 = 30;
-        a전사.이름 = "카니";
-        a전사.자기소개();
-
-        a전사.a무기 = new 활();
-        a전사.공격();
-        // 출력 : 카니가 활로 공격합니다.
-
-        a전사.a무기 = new 칼();
-        a전사.공격();
-        // 출력 : 카니가 칼로 공격합니다.
-
-        a전사.a무기 = new 칼();
-        a전사.이름 = "철수";
-        a전사.공격();
-
-    }
-}
-
-class 전사 {
-    // 인스턴스 변수
-    String 이름;
-    // 인스턴스 변수
-    int 나이;
-    // 인스턴스 변수
-    무기 a무기;
-
-
-    void 자기소개() {
-        System.out.println("안녕하세요. 저는 " + this.나이 + "살 " + this.이름 + " 입니다.");
-    }
-
-    void 공격() {
-        a무기.작동(this.이름); // 변수 넣는거 익숙해지기
-    }
-}
-
-class 무기 {
-    void 작동(String name) {
-    }
-
-}
-
-class 칼 extends 무기 {
-    void 작동(String name) {
-        System.out.println(name + "가 칼로 공격합니다.");
-    }
-
-}
-
-class 활 extends 무기 {
-    void 작동(String name) {
-        System.out.println(name + "가 활로 공격합니다.");
-    }
-
-}
-
-
-// 아래의 코드가 실행되도록 해주세요
-
-public class Main {
-    public static void main(String[] args) {
-        전사 a전사 = new 전사();
-
-        String 이름 = "칸";
-        a전사.이름 = 이름;
-        a전사.나이 = 20;
-        a전사.자기소개();
-
-        a전사.나이++;
-        a전사.자기소개();
-
-        a전사.나이 = 30;
-        a전사.이름 = "진";
-        a전사.자기소개();
-
-        a전사.a무기 = new 활();
-        a전사.공격();
-        //출력 : 진이 활로 공격합니다.
-
-        a전사.a무기 = new 칼();
-        a전사.공격();
-        //출력 : 진이 칼로 공격합니다.
-    }
-}
-
-class 전사 {
-    //인스턴스 변수
     String 이름;
     int 나이;
-    무기 a무기;
+    // int 나이 = 22;
+    
+    사람(String name, int age) {
+        this.이름 = name;
+        this.나이 = age;
+    } // 오버로딩 : 다형성
+    
+    
+    사람() {
+        this.나이 = 22; // 나이 22로 고정
+        System.out.println("사람 생성자 실행됨"); // 부모가 먼저 실행 / 부모만 있어도 실행됨.
+    } // 기본생성자
 
-    void 자기소개() {
-        System.out.println("안녕하세요. 저는 " + this.나이 + "살 " + this.이름 + " 입니다.");
-    }
-
-    void 공격() {
-        System.out.println(this.이름 + "이 " + this.a무기.공격() + "로 공격합니다.");
-    }
-
-    void 공격2() {
-
-        a무기.공격자이름 = this.이름;
-        a무기.공격2();
-    }
 }
 
-class 무기 {
-    String 공격자이름;
-
-    String 공격() {
-        return "";
-    }
-
-    void 공격2() {
-
-    }
-}
-
-class 칼 extends 무기 {
-    String 공격() {
-        return "칼";
-    }
-
-    void 공격2() {
-        System.out.println(공격자이름 + "이 칼로 공격합니다.");
-    }
-}
-
-class 활 extends 무기 {
-    String 공격() {
-        return "활";
+class 김철수 extends 사람{
+    김철수() {
+        System.out.println("김철수 생성자 실행됨"); // 그 후 자식 생성자 실행 / 자식만 있어도 실행됨.
+        this.이름 = "김철수"; // 상속받았기 때문에 선언 없이 사용 가능.
     }
 }
 
 
-
+// break point 디버그 메인함수로 동작하면 하나씩 코드를 볼 수 있음.
+//기능 참고 : intelliJ break point, debug mode
