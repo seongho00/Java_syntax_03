@@ -1,102 +1,51 @@
 package org.example;
 
-import com.sun.source.tree.WhileLoopTree;
 
-import javax.sound.midi.Soundbank;
-import javax.swing.*;
-import java.io.CharArrayReader;
-import java.security.spec.RSAOtherPrimeInfo;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Scanner;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.ArrayList;
+import java.net.Inet4Address;
+import java.util.*;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-// 문제 : 아래가 실행되도록 해주세요.
+
 class Main {
     public static void main(String[] args) {
-        사람인력관리소 a사람인력관리소 = new 사람인력관리소();
 
-        a사람인력관리소.add사람("홍길순", 33);
-        // 나이가 33살인 1번째 사람(홍길순)이 추가되었습니다.
-        a사람인력관리소.add사람("홍길동", 20);
-        // 나이가 20살인 2번째 사람(홍길동)이 추가되었습니다.
-        a사람인력관리소.add사람("임꺽정", 30);
-        // 나이가 30살인 3번째 사람(임꺽정)이 추가되었습니다.
+        List<Integer> ages = new ArrayList<>();
+        ages.add(20);
+        ages.add(22);
+        ages.add(33); //누구의 나이인지 모름
 
-        사람 a사람1 = a사람인력관리소.get사람(1);
-        a사람1.자기소개();
-        // 저는 1번, 홍길순, 33살 입니다.
+        ages.get(0);
 
-        사람 a사람2 = a사람인력관리소.get사람(2);
-        a사람2.자기소개();
-        // 저는 2번, 홍길동, 20살 입니다.
+        Map<String, Integer> agesMap = new HashMap<>(); // key, value 데이터
+        agesMap.put("철수나이", 20); // 철수나이 : key / 20 : value
+        agesMap.put("영희나이", 22);
+        agesMap.put("영수나이", 33);
 
-        사람 a사람3 = a사람인력관리소.get사람(3);
-        a사람3.자기소개();
-        // 저는 3번, 임꺽정, 30살 입니다.
-    }
-}
-
-class 사람인력관리소 {
-    int 마지막_사람번호;
-//    사람 a사람0;
-//    사람 a사람1;
-//    사람 a사람2; // 문제점 : 사람이 늘어날 때마다 한 명씩 더 추가해야함.
-
-    List<사람> 사람들 = new ArrayList<>();
+        agesMap.get("철수나이");
 
 
-    void add사람(String name, int age) {
-        int 번호 = 마지막_사람번호;
+        Scanner sc = new Scanner(System.in);
+        int a = 0;
 
-        사람 a사람 = new 사람();
-        a사람.age = age;
-        a사람.name = name;
-        a사람.num = 번호;
+        while (true) {
+            try {
+//            int a = sc.nextInt(); // 숫자만 입력할 수 있음 잘못 입력해도 작동하고 싶다면? try 함수
+                a = sc.nextInt();
+                sc.nextLine(); // 버퍼를 비운다.
+                break;
+            } catch (InputMismatchException e) {
+                sc.nextLine();
+                System.out.println("똑바로 쓰기");
+            }
+        }
 
-        사람들.add(a사람);
+        //int 랑 라인
 
+        System.out.println(a); // a 변수 선언이 안 될 수 있음. -> try 함수 밖에 선언
 
-//        if (번호 == 1) {
-//            a사람0 = a사람;
-//        } else if (번호 == 2) {
-//            a사람1 = a사람;
-//        } else if (번호 == 3) {
-//            a사람2 = a사람;
-//        }
+        sc.close();
 
-
-        마지막_사람번호++;
-
-
-    }
-
-    사람 get사람(int index) {
-//        if (index == 1) {
-//            return a사람0;
-//        } else if (index == 2) {
-//            return a사람1;
-//        } else if (index == 3) {
-//            return a사람2;
-//        }
-        return 사람들.get(index - 1);
 
     }
 }
-
-class 사람 extends 사람인력관리소 {
-    int age;
-    String name;
-    int num;
-
-    void 자기소개() {
-        System.out.printf("저는 %d번, %s, %d살 입니다.\n", this.num, this.name, this.age);
-    }
-}
-
-
-
