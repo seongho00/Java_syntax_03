@@ -42,32 +42,49 @@ class Main {
 }
 
 class 사람인력관리소 {
-    static int index;
+    int 마지막_사람번호;
+//    사람 a사람0;
+//    사람 a사람1;
+//    사람 a사람2; // 문제점 : 사람이 늘어날 때마다 한 명씩 더 추가해야함.
 
+    List<사람> 사람들 = new ArrayList<>();
 
-    ArrayList 사람인적사항 = new ArrayList();
-
-
-    static {
-        index = 0;
-    }
 
     void add사람(String name, int age) {
-        사람인적사항.add(index + 1);
-        사람인적사항.add(name);
-        사람인적사항.add(age);
-        System.out.printf("나이가 %d살인 %d번째 사람(%s)이 추가되었습니다.\n", index + 1, age, name);
+        int 번호 = 마지막_사람번호;
 
-        index++;
+        사람 a사람 = new 사람();
+        a사람.age = age;
+        a사람.name = name;
+        a사람.num = 번호;
+
+        사람들.add(a사람);
+
+
+//        if (번호 == 1) {
+//            a사람0 = a사람;
+//        } else if (번호 == 2) {
+//            a사람1 = a사람;
+//        } else if (번호 == 3) {
+//            a사람2 = a사람;
+//        }
+
+
+        마지막_사람번호++;
+
+
     }
 
     사람 get사람(int index) {
-        사람 get사람 = new 사람();
+//        if (index == 1) {
+//            return a사람0;
+//        } else if (index == 2) {
+//            return a사람1;
+//        } else if (index == 3) {
+//            return a사람2;
+//        }
+        return 사람들.get(index - 1);
 
-        get사람.name = (String) 사람인적사항.get((index - 1) * 3 + 1);
-        get사람.age = (int) 사람인적사항.get((index - 1) * 3 + 2);
-        get사람.num = (int) 사람인적사항.get((index - 1) * 3);
-        return get사람;
     }
 }
 
