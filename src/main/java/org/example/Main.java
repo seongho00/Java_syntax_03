@@ -1,5 +1,7 @@
 package org.example;
 
+import com.sun.source.tree.WhileLoopTree;
+
 import javax.sound.midi.Soundbank;
 import javax.swing.*;
 import java.io.CharArrayReader;
@@ -11,96 +13,73 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-public class Main {
+// 문제 : 아래가 실행되도록 해주세요.
+class Main {
     public static void main(String[] args) {
-        v4();
-    }
+        사람인력관리소 a사람인력관리소 = new 사람인력관리소();
 
-    static void v4() {
-        System.out.println("==v4==");
-        List<Article> articles = new ArrayList<>();
-        articles.add(new Article()); // index : 0 , id : 1
-        articles.add(new Article()); // index : 1 , id : 2
-        articles.add(new Article()); // index : 2 , id : 3
+        a사람인력관리소.add사람("홍길순", 33);
+        // 나이가 33살인 1번째 사람(홍길순)이 추가되었습니다.
+        a사람인력관리소.add사람("홍길동", 20);
+        // 나이가 20살인 2번째 사람(홍길동)이 추가되었습니다.
+        a사람인력관리소.add사람("임꺽정", 30);
+        // 나이가 30살인 3번째 사람(임꺽정)이 추가되었습니다.
 
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = articles.get(i);
-            System.out.println(article.id);
-        }
-    }
+        사람 a사람1 = a사람인력관리소.get사람(1);
+        a사람1.자기소개();
+        // 저는 1번, 홍길순, 33살 입니다.
 
-    static void v3() {
-        System.out.println("==v3==");
-        ArrayList articles = new ArrayList<>();
-        articles.add(true); // index : 0 , id : 1
-        articles.add(new Article()); // index : 1 , id : 2
-        articles.add(1); // index : 2 , id : 3
-        articles.add(new Article()); // index : 3 , id : 4
+        사람 a사람2 = a사람인력관리소.get사람(2);
+        a사람2.자기소개();
+        // 저는 2번, 홍길동, 20살 입니다.
 
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = articles.get(i); // ArrayList 에 변수를 넣을 떄는 모든 타입을 넣을 수 있음. (Object 타입)
-            //강제형변환 필요
-            System.out.println(article.id);
-        }
-    }
-
-    static void v2() {
-        System.out.println("==v2==");
-        ArrayList articles = new ArrayList();
-        articles.add(new Article()); // index : 0 , id : 1
-        articles.add(new Article()); // index : 1 , id : 2
-        articles.add(new Article()); // index : 2 , id : 3
-        articles.add(new Article()); // index : 3 , id : 4
-
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = (Article) articles.get(i);
-            System.out.println(article.id);
-        }
-    }
-
-    static void v1() {
-        System.out.println("==v1==");
-        Article[] articles = new Article[100];
-
-        int articlesSize = 0;
-
-        articles[0] = new Article();
-        articlesSize++;
-        articles[1] = new Article();
-        articlesSize++;
-        articles[2] = new Article();
-        articlesSize++;
-        articles[3] = new Article();
-        articlesSize++;
-        articles[4] = new Article();
-        articlesSize++;
-
-        for (int i = 0; i < articlesSize; i++) {
-            System.out.println(articles[i].id);
-        }
+        사람 a사람3 = a사람인력관리소.get사람(3);
+        a사람3.자기소개();
+        // 저는 3번, 임꺽정, 30살 입니다.
     }
 }
 
-class Article {
-    static int lastId;
+class 사람인력관리소 {
+    static int index;
 
-    int id;
-    String regDate;
+
+    ArrayList 사람인적사항 = new ArrayList();
+
 
     static {
-        lastId = 0;
+        index = 0;
     }
 
-    Article() {
-        this(lastId + 1, "2025-12-12 12:12:12"); // 다른 생성자 호출(실행), Constructor Call
-        lastId++;
+    void add사람(String name, int age) {
+        사람인적사항.add(index + 1);
+        사람인적사항.add(name);
+        사람인적사항.add(age);
+        System.out.printf("나이가 %d살인 %d번째 사람(%s)이 추가되었습니다.\n", index + 1, age, name);
+
+        index++;
     }
 
-    Article(int id, String regDate) {
-        this.id = id;
-        this.regDate = regDate;
+    사람 get사람(int index) {
+        사람 get사람 = new 사람();
+
+        get사람.name = (String) 사람인적사항.get((index - 1) * 3 + 1);
+        get사람.age = (int) 사람인적사항.get((index - 1) * 3 + 2);
+        get사람.num = (int) 사람인적사항.get((index - 1) * 3);
+        return get사람;
     }
 }
+
+class 사람 extends 사람인력관리소 {
+    int age;
+    String name;
+    int num;
+
+    void 자기소개() {
+        System.out.printf("저는 %d번, %s, %d살 입니다.\n", this.num, this.name, this.age);
+    }
+}
+
 
 
