@@ -2,50 +2,70 @@ package org.example;
 
 
 import java.awt.*;
+
 import java.net.Inet4Address;
-import java.util.*;
 import java.util.List;
 
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 class Main {
     public static void main(String[] args) {
-
-        List<Integer> ages = new ArrayList<>();
-        ages.add(20);
-        ages.add(22);
-        ages.add(33); //누구의 나이인지 모름
-
-        ages.get(0);
-
-        Map<String, Integer> agesMap = new HashMap<>(); // key, value 데이터
-        agesMap.put("철수나이", 20); // 철수나이 : key / 20 : value
-        agesMap.put("영희나이", 22);
-        agesMap.put("영수나이", 33);
-
-        agesMap.get("철수나이");
-
-
         Scanner sc = new Scanner(System.in);
-        int a = 0;
+        String[] inputs = sc.nextLine().split(" ");
 
-        while (true) {
-            try {
-//            int a = sc.nextInt(); // 숫자만 입력할 수 있음 잘못 입력해도 작동하고 싶다면? try 함수
-                a = sc.nextInt();
-                sc.nextLine(); // 버퍼를 비운다.
-                break;
-            } catch (InputMismatchException e) {
-                sc.nextLine();
-                System.out.println("똑바로 쓰기");
-            }
+        for (String inpuData : inputs) { //inputs 데이터 안의 요소만큼 반복
+            System.out.println(inpuData);
         }
 
-        //int 랑 라인
+        //steam 문법
 
-        System.out.println(a); // a 변수 선언이 안 될 수 있음. -> try 함수 밖에 선언
+        long sum = Arrays.stream(inputs) // stream 쓰겠다 (스트림화)
+                .peek(e -> System.out.println(e)) // 어떤 요소가 더해지는지 볼 수 있음
+                .mapToLong(e -> Long.parseLong(e)) // e : element // 요소를 하나씩 꺼내 쓰곘다
+                //mapping (matching시킨다.)
+                .sum(); // 다 더한다.
+
+        IntStream.range(1, 11) // 1에서 10까지
+                .forEach(e -> {
+                    System.out.println(e); // 요소마다 출력한다.
+                });
+
+        //-> 더 간단하게
+        IntStream.range(1, 11)
+                .forEach(System.out::println);
+
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        System.out.println(Arrays.toString(arr)); // arr안의 요소를 확인할 때 쓰임
+
+        int[] rsArr = Arrays.stream(arr)
+                .map(e -> {
+                    return e * 2;
+                }).toArray(); // 배열로 다시 바꿔줘야함.
+
+        // 더 간결하게
+        int[] rsArr2 = Arrays.stream(arr)
+                .map(e -> e * 2).toArray();
+
+
+        rsArr2 = Arrays.stream(arr)
+                .filter(e -> e % 2 == 0) // 조건을 만족하는 요소만 추출
+                .map(e -> e * 2) // 추출한 요소를 2로 곱해
+                .toArray(); // 배열에 담기
+
+        List<Integer> rsAl = new ArrayList<>();
+
+        for (int n : arr) if (n % 2 == 0) rsAl.add(n); //내용이 한줄이면 중괄호 없애도 됨.
+
+        rsAl = Arrays.stream(arr)
+                .filter(e -> e % 2 == 0) // 조건을 만족하는 요소만 추출
+                .map(e -> e * 2) // 추출한 요소를 2로 곱해
+                .boxed()  // Collectors.toList 사용 시 필요한 문법
+                .collect(Collectors.toList()); // List 함수로 만들려고 할 때는 collect 사용
+
 
         sc.close();
-
-
     }
 }
